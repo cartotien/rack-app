@@ -1,9 +1,11 @@
 require 'logger'
 
-class Logger
+class AppLogger
+  attr_reader :query_string
+
   def initialize(app, **options)
     @app = app
-    @logger = Logger.new(options[:logdev] || $stdout)
+    @logger = Logger.new(options[:logdev])
   end
 
   def call(env)
