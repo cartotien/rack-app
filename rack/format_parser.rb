@@ -20,7 +20,7 @@ class FormatParser
 
   def parse_formats(format)
     parsed_formats = format.map do |t|
-      Time.now.public_send(t.to_sym) unless @errors.include?(t)
+      Time.now.public_send(t.to_sym)
     end
     parsed_formats.join('-')
   end
